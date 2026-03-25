@@ -24,5 +24,12 @@ addLayer("g", {
     hotkeys: [
         {key: "g", description: "g: reset for gronk phonk", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {
+        11: {
+            title: "labubu",
+            description: "1.2x rizz",
+            cost: new Decimal(2),
+        },
+    },
 })
