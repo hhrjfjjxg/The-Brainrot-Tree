@@ -4,7 +4,7 @@ let modInfo = {
 	pointsName: "gronk phonk",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "hhrjfjjxg e",
+	discordName: "hhrjfjjxg",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
@@ -28,7 +28,7 @@ let winText = `Congratulations! You have reached the end and beaten this game, b
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
 
 function getStartPoints(){
-    return new Decimal(modInfo.initialStartPoints)
+    return new Decimal(0)
 }
 
 // Determines if it should show points/sec
@@ -43,7 +43,9 @@ function getPointGen() {
 		let gain = new Decimal(1)
 	
 		if (hasUpgrade('g', 11)) gain = gain.times(1.2)
-			1
+		if (hasUpgrade('g', 12)) gain = gain.times(1.5)
+		if (hasUpgrade('m', 11)) gain = gain.times(1.6)
+		if (hasUpgrade('m', 12)) gain = gain.times(1.7)
 		return gain
 }
 
