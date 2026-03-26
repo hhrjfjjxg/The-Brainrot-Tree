@@ -12,14 +12,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
+	num: "0.1",
 	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.1</h3><br>
+		- Added new upgrades to both layers.<br>
+		- Fixed bugs.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -42,10 +42,12 @@ function getPointGen() {
 		return new Decimal(0)
 		let gain = new Decimal(1)
 	
-		if (hasUpgrade('g', 11)) gain = gain.times(1.2)
-		if (hasUpgrade('g', 12)) gain = gain.times(1.5)
+		if (hasUpgrade('g', 11)) gain = gain.times(1.1)
+		if (hasUpgrade('g', 12)) gain = gain.times(1.2)
+		if (hasUpgrade('g', 13)) gain = gain.times(1.3)
 		if (hasUpgrade('m', 11)) gain = gain.times(1.6)
 		if (hasUpgrade('m', 12)) gain = gain.times(1.7)
+		if (hasUpgrade('m', 13)) gain = gain.times(upgradeEffect('m', 13))
 		return gain
 }
 

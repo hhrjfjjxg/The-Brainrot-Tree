@@ -37,6 +37,11 @@ addLayer("g", {
             description: "1.3x rizz",
             cost: new Decimal(3),
         },
+        13: {
+            title: "phonk gronk",
+            description: "rizz boost gronk phonk",
+            cost: new Decimal(6),
+        },
     },
 })
 addLayer("m", {
@@ -78,6 +83,15 @@ addLayer("m", {
             title: "mewing grind",
             description: "1.7x rizz",
             cost: new Decimal(40),
+        },
+        13: {
+            title: "streaming",
+            description: "mewing boosts rizz",
+            cost: new Decimal(3),
+                effect() {
+        return player[this.layer].points.add(1).pow(0.5)
+    },
+    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
     },
     doReset(resettingLayer) {
