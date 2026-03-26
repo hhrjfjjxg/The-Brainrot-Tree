@@ -36,11 +36,27 @@ addLayer("g", {
             title: "sabubu",
             description: "1.2x rizz",
             cost: new Decimal(2),
+            unlocked() { return hasUpgrade(this.layer, 11) },
         },
         13: {
             title: "phonk gronk",
             description: "rizz boost gronk phonk",
-            cost: new Decimal(5),
+            cost: new Decimal(6),
+                effect() {
+        return player.points.add(1).pow(0.1)
+    },
+        gainMult() {
+        let mult = new Decimal(1)
+        if (hasUpgrade('g', 13)) mult = mult.times(upgradeEffect('g', 13))
+        return mult
+    },
+            unlocked() { return hasUpgrade(this.layer, 12) },
+        },
+        14: {
+            title: "labubu phonk",
+            description: "1.3x rizz",
+            cost: new Decimal(15),
+            unlocked() { return hasUpgrade(this.layer, 13) },
         },
     },
 })
@@ -72,7 +88,7 @@ addLayer("m", {
         {key: "m", description: "m: reset for mewing grind", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){
-        return hasUpgrade("g", 13) 
+        return hasUpgrade("g", 14) 
     },
     upgrades: {
         11: {
@@ -84,15 +100,18 @@ addLayer("m", {
             title: "mewing grind",
             description: "1.7x rizz",
             cost: new Decimal(40),
+            unlocked() { return hasUpgrade(this.layer, 11) },
         },
         13: {
             title: "streaming",
             description: "mewing boosts rizz",
             cost: new Decimal(3),
+            unlocked() { return hasUpgrade(this.layer, 12) },
                 effect() {
         return player[this.layer].points.add(1).pow(0.5)
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
+
     },
 })
