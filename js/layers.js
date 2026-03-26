@@ -29,21 +29,22 @@ addLayer("g", {
     upgrades: {
         11: {
             title: "labubu",
-            description: "1.2x rizz",
-            cost: new Decimal(2),
+            description: "1.1x rizz",
+            cost: new Decimal(1),
         },
         12: {
             title: "sabubu",
-            description: "1.3x rizz",
-            cost: new Decimal(3),
+            description: "1.2x rizz",
+            cost: new Decimal(2),
         },
         13: {
             title: "phonk gronk",
             description: "rizz boost gronk phonk",
-            cost: new Decimal(6),
+            cost: new Decimal(5),
         },
     },
 })
+
 addLayer("m", {
     name: "mewing grind", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "mg", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -71,7 +72,7 @@ addLayer("m", {
         {key: "m", description: "m: reset for mewing grind", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){
-        return hasUpgrade("g", 12) 
+        return hasUpgrade("g", 13) 
     },
     upgrades: {
         11: {
@@ -93,11 +94,5 @@ addLayer("m", {
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
-    },
-    doReset(resettingLayer) {
-        let keep = [];
-         if (resettingLayer == "m") {
-                 layerDataReset("gp", ["upgrades", "milestones"]) 
-        }
     },
 })
