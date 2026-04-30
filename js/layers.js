@@ -88,7 +88,7 @@ addLayer("m", {
         {key: "m", description: "m: reset for mewing grind", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
    layerShown() {
-    return hasUpgrade('g', 14) || player.g.points.gte(50)
+    return hasUpgrade('g', 14) || player.g.points.gte(200)
     },
     upgrades: {
         11: {
